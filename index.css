@@ -1,7 +1,56 @@
 body {
     margin: 0;
-    background-color: #E5E0D8;
+    background-color: #fff;
     font-family: 'Varela', sans-serif;
 } 
 
+/* typography */
 
+h1, h2 {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Small devices with the width <= 992px */
+h1 {
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem;
+    top: 35%;
+}
+
+h2 {
+    font-size: 0.7rem;
+    letter-spacing: 0.35rem;
+    top: 60%;
+}
+
+/* Large devices with the width >= 992px */
+@media only screen and (min-width: 992px) {
+    h1 {
+        font-size: 5.5rem;
+        letter-spacing: 0.94rem;
+        top: 25%;
+        left: 50.5%;
+    }
+
+    h2 {
+        font-size: 3rem;
+        letter-spacing: 1.35rem;
+        top: 58%;
+    }
+    
+}
+
+header {
+    position: relative;
+    overflow-x: hidden;
+}
+
+img {
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+}
