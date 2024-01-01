@@ -44,13 +44,53 @@ h2 {
     
 }
 
+/* layout */
 header {
     position: relative;
     overflow-x: hidden;
 }
 
-img {
+header img {
     width: 100%;
     max-height: 320px;
     object-fit: cover;
+}
+
+/* menu items */
+
+.menu-item {
+    border-bottom: 1px solid lightgray;
+    padding: 20px 0 0 0;
+    width: 100%;
+    margin: 15px 0;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.item-inner {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.menu-details{
+    font-size: 13px;
+    justify-content: space-between;
+
+    width: 150px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+/* images */
+
+.dish-preview {
+    border: 1px solid lightgray;
+    width: 100px;
+}
+
+/* utility */
+.hidden{
+    display: none;
 }
