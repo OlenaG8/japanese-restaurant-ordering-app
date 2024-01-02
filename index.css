@@ -2,7 +2,7 @@ body {
     margin: 0;
     background-color: #fff;
     font-family: 'Varela', sans-serif;
-    overflow: hidden;
+    overflow-x: hidden;
 } 
 
 /* typography */
@@ -26,6 +26,11 @@ header h2 {
     font-size: 0.69rem; /* 11px */
     letter-spacing: 0.6rem;
     top: 63%;
+}
+
+.menu-container h2 {
+    font-size: 20px;
+    text-align: center;
 }
 
 /* layout */
@@ -71,13 +76,13 @@ header img {
     margin: 0;
 }
 
-.quantityBtn {
+.quantity_btn {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.quantityBtn p {
+.quantity_btn p {
     margin: 5px 0;
     font-size: 13px;
     align-items: center;
@@ -85,7 +90,7 @@ header img {
 
 /* buttons */
 
-.addBtn, .removeBtn {
+.add_btn, .remove_btn {
     width: 25px;
     height: 25px;
     background: #fff;
@@ -98,8 +103,8 @@ header img {
 
 .dish-preview {
     border: 1px solid lightgray;
-    max-height: 7.5rem; /* 120px */
-    width: 5.7rem; /* 90px */
+    max-height: 7.81rem; /* 125px */
+    width: 6.25rem; /* 100px */
     /* margin-top: 1rem; */
 }
 
