@@ -2,11 +2,12 @@ body {
     margin: 0;
     background-color: #fff;
     font-family: 'Varela', sans-serif;
+    overflow: hidden;
 } 
 
 /* typography */
 
-h1, h2 {
+header h1, header h2 {
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -15,82 +16,113 @@ h1, h2 {
 }
 
 /* Small devices with the width <= 992px */
-h1 {
-    font-size: 1.4rem;
+header h1 {
+    font-size: 1.89rem; /* 30px */
     letter-spacing: 0.1rem;
-    top: 35%;
+    top: 33%;
 }
 
-h2 {
-    font-size: 0.7rem;
-    letter-spacing: 0.35rem;
-    top: 60%;
-}
-
-/* Large devices with the width >= 992px */
-@media only screen and (min-width: 992px) {
-    h1 {
-        font-size: 5.5rem;
-        letter-spacing: 0.94rem;
-        top: 25%;
-        left: 50.5%;
-    }
-
-    h2 {
-        font-size: 3rem;
-        letter-spacing: 1.35rem;
-        top: 58%;
-    }
-    
+header h2 {
+    font-size: 0.69rem; /* 11px */
+    letter-spacing: 0.6rem;
+    top: 63%;
 }
 
 /* layout */
 header {
+    width: 100%;
     position: relative;
-    overflow-x: hidden;
+    white-space: nowrap;
 }
 
 header img {
     width: 100%;
-    max-height: 320px;
+    max-height: 20rem; /* 32px */
     object-fit: cover;
 }
 
 /* menu items */
 
 .menu-item {
-    border-bottom: 1px solid lightgray;
-    padding: 20px 0 0 0;
-    width: 100%;
-    margin: 15px 0;
-
     display: flex;
-    flex-direction: row;
+    border-bottom: 1px solid lightgray;
+    padding: 1.25rem 0 0 0; /* 20px */
+    margin: 0.94rem; /* 15px */
 }
 
 .item-inner {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 0.94rem; /* 15px */
+}
+
+.item-photo {
+    display: flex;
+    flex: 1;
 }
 
 .menu-details{
-    font-size: 13px;
-    justify-content: space-between;
+    font-size: 0.7rem; /* 11px */
+    width: 115px;
+    line-height: 1.5;
+}
 
-    width: 150px;
-    font-size: 14px;
-    line-height: 20px;
+.menu-details h3 {
+    margin: 0;
+}
+
+.quantityBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quantityBtn p {
+    margin: 5px 0;
+    font-size: 13px;
+    align-items: center;
+}
+
+/* buttons */
+
+.addBtn, .removeBtn {
+    width: 25px;
+    height: 25px;
+    background: #fff;
+    border: 1px solid lightgray;
+    border-radius: 50%;
+
 }
 
 /* images */
 
 .dish-preview {
     border: 1px solid lightgray;
-    width: 100px;
+    max-height: 7.5rem; /* 120px */
+    width: 5.7rem; /* 90px */
+    /* margin-top: 1rem; */
 }
 
 /* utility */
 .hidden{
     display: none;
+}
+
+/* ----- MEDIA QUERIES ----- */
+
+/* Large devices with the width >= 768px */
+@media only screen and (min-width: 768px) {
+     header h1 {
+        font-size: 5.5rem; /* 88px */
+        letter-spacing: 0.94rem; /* 88px */
+        top: 25%;
+        left: 50.5%;
+    }
+
+    header h2 {
+        font-size: 3rem;
+        letter-spacing: 1.35rem;
+        top: 58%;
+    }
+    
 }
