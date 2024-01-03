@@ -3,20 +3,14 @@ import { menuArray } from './data.js'
 const addBtn = document.getElementById('add_btn')
 
 document.addEventListener('click', function(e){
-    if (e.target.dataset.add) {
-        handleAddToCardBtn(e.target.dataset.add)
+    if (e.target.id === 'add-btn') {
+        handleAddToCardBtn()
     }
 })
 
-function handleAddToCardBtn(itemId) {
-    document.getElementById('remove_btn').classList.toggle('hidden')
-    console.log("kupa")
-    const targetItemObj = menuArray.filter(function(item){
-        return item.id = itemId
-    })[0]
+function handleAddToCardBtn() {
+    document.getElementById('minus').style.display = 'inline';
 }
-
-
 
 function getFeedHtml(type) {
     return menuArray.filter(item => item.type === type).map(getItemHtml).join('')
