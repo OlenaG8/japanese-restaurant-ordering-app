@@ -1,15 +1,35 @@
 import { menuArray } from './data.js'
 
-const addBtn = document.getElementById('add_btn')
-
 document.addEventListener('click', function(e){
-    if (e.target.id === 'add-btn') {
-        handleAddToCardBtn()
-    }
+    if(e.target.dataset.add){
+        handleAddBtn(e.target.dataset.add) 
+     }
+    else if(e.target.dataset.remove){
+        handleRemoveBtn(e.target.dataset.remove) 
+     }
 })
 
-function handleAddToCardBtn() {
-    document.getElementById('minus').style.display = 'inline';
+function handleAddBtn(itemId){
+    document.querySelectorAll(`#quantity-${itemId}`).forEach(operator => operator.style.display = 'block')
+    const targetItem = menuArray.filter(item => item.id === itemId)[0]
+    // targetItem.amount++
+    console.log(targetItem)
+    render()
+}
+
+
+function handleRemoveBtn(itemId){
+    const targetItem = menuArray.filter(function(item){
+        return item.id === itemId
+    })[0]
+
+    if (targetItem.amount > 1) {
+        targetItem.amount--
+    } else if (targetItem.amount <= 1) {
+        targetItem.amount--
+        document.querySelectorAll(`#quantity-${itemId}`).forEach(operator => operator.style.display = 'none')
+    }
+   render()
 }
 
 function getFeedHtml(type) {
@@ -28,9 +48,9 @@ function getItemHtml(item) {
             <h4>${item.price}€</h4>
         </div> 
         <div class="quantity_btn">
-            <button class="add_btn" id="add_btn">+</button>
-            <p class="hidden">0</p>
-            <button class="remove_btn hidden">-</button>
+            <button class="add_btn" data-add="${item.id}">+</button>
+            <p class="hidden" id="quantity-${item.id}">${item.amount}</p>
+            <button class="remove_btn hidden" id="quantity-${item.id}" data-remove="${item.id}">-</button>
         </div>        
     </div>  
 </div>
@@ -39,7 +59,7 @@ function getItemHtml(item) {
 
 function render(){
         for (let type of ['ramens', 'sushi', 'drinks']) {
-            document.getElementById(type).innerHTML += getFeedHtml(type)
+            document.getElementById(type).innerHTML = getFeedHtml(type)
         }
 }
 
