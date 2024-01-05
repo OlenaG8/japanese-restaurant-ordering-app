@@ -2,7 +2,7 @@ export const menuArray = [
     {
         name: "Paitan Ramen",
         ingredients: ["creamy chicken broth", "thick ramen noodles", "karaage chicken", "baked tomatoes", "coriander", "citrus oil"],
-        id: 23,
+        id: 0,
         price: 15,
         itemPhoto: `assets/ramen.jpg`,
         amount: 0,
@@ -13,7 +13,7 @@ export const menuArray = [
         ingredients: ["5 pcs nigiri", "5 pcs tiger roll", "5 pcs goma maki", "5 pcs eel maki", "5 pcs hosomaki"],
         price: 25,
         itemPhoto: `assets/sushi.jpg`,
-        id: 24,
+        id: 1,
         amount: 0,
         type: "sushi"
     },
@@ -22,7 +22,7 @@ export const menuArray = [
         ingredients: ["green powdered Japanese tea of the highest quality"],
         price: 6,
         itemPhoto: `assets/matcha.jpg`,
-        id: 25,
+        id: 2,
         amount: 0,
         type: "drinks"
     },
@@ -31,7 +31,7 @@ export const menuArray = [
         ingredients: ["creamy pork broth", "thin hakata noodles", "caramelized chashu", "corn", "chicken oil"],
         price: 16,
         itemPhoto: `assets/ramen2.jpg`,
-        id: 26,
+        id: 3,
         amount: 0,
         type: "ramens"
     }
