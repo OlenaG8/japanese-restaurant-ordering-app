@@ -13,27 +13,47 @@
 
     <body>
         <header>
+            <div id="top-discount-banner">
+                <p><b>20% OFF</b> for new customers. Apply the code <b>20FORNEW !</b></p>
+            </div>
             <img src="assets/header-image.jpg" alt="Japanese food">
             <h1>いただきます</h1>
             <h2>ITADAKIMASU</h2>
         </header>
 
         <main>
-            <div class="menu-container" id="menu-container">
-                <h2>Ramens</h2>
-                    <div id="ramens">
-                        <!-- menu items go here -->
+            <section>
+                <div class="menu-container">
+                    <h2>Ramens</h2>
+                        <div id="ramens">
+                            <!-- menu items go here -->
+                        </div>
+                    <h2>Sushi</h2>
+                        <div id="sushi">
+                            <!-- menu items go here -->
+                        </div>
+                    <h2>Drinks</h2>
+                        <div id="drinks">
+                            <!-- menu items go here -->
+                        </div>
+                </div>
+            </section>
+            
+            <section>
+                <div class="order-preview-con">
+                    <h3>Your order</h3>
+                    <div class="ordered_items">
+                        <!-- ordered items go here -->
                     </div>
-                <h2>Sushi</h2>
-                    <div id="sushi">
-                        <!-- menu items go here -->
+                    <div class="order-total">
+                        <h3>Total price:</h3>
                     </div>
-                <h2>Drinks</h2>
-                    <div id="drinks">
-                        <!-- menu items go here -->
-                    </div>
-        
-            </div>
+                    <button class="purchase-button" id="purchase-button">
+                        Complete order
+                    </button>
+                </div>
+            </section>
+
 
         </main>
 	<script src="index.js" type="module"></script>

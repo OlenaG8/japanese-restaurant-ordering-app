@@ -9,6 +9,7 @@ body {
 
 header h1, header h2 {
     position: absolute;
+    white-space: nowrap;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
@@ -16,39 +17,67 @@ header h1, header h2 {
 }
 
 /* Small devices with the width <= 992px */
+
+#top-discount-banner p {
+    margin: 0;
+    text-align: center;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
 header h1 {
     font-size: 1.89rem; /* 30px */
     letter-spacing: 0.1rem;
-    top: 33%;
+    top: 50%;
 }
 
 header h2 {
     font-size: 0.69rem; /* 11px */
     letter-spacing: 0.6rem;
-    top: 63%;
+    top: 70%;
 }
 
 .menu-container h2 {
     font-size: 20px;
     text-align: center;
 }
+
 .btn_container p {
     margin: 5px 0;
     font-size: 14px;
 }
 
-/* layout */
 
+/* layout */
 header {
     width: 100%;
     position: relative;
-    white-space: nowrap;
 }
 
+#top-discount-banner {
+    position: absolute;
+    padding: 10px;
+    background-color: #ff9900;
+    color: #ffffff;
+
+    z-index: 1000;
+    width: 100%;
+}
+
+/* images */
+
 header img {
+    margin-top: 2.5rem; /* 48 px */
     width: 100%;
     max-height: 20rem; /* 32px */
     object-fit: cover;
+}
+
+.dish-preview {
+    border: 1px solid lightgray;
+    max-height: 7.81rem; /* 125px */
+    width: 6.25rem; /* 100px */
 }
 
 /* menu items */
@@ -95,7 +124,6 @@ header img {
     background: #fff;
     border: 1px solid lightgray;
     border-radius: 50%;
-
 }
 
 button:hover {
@@ -107,12 +135,13 @@ button:active {
     background: #FE9951;
 }
 
-/* images */
-
-.dish-preview {
-    border: 1px solid lightgray;
-    max-height: 7.81rem; /* 125px */
-    width: 6.25rem; /* 100px */
+.purchase-button {
+    margin: 10px auto;
+    border: none;
+    border-radius: 3px;
+    background: #ff9900;
+    color: #fff;
+    padding: 8px 20px;
 }
 
 /* utility */
@@ -121,11 +150,17 @@ button:active {
     display: none;
 }
 
+
+
+
 /* ----- MEDIA QUERIES ----- */
 
 /* Large devices with the width >= 768px */
 @media only screen and (min-width: 768px) {
-     header h1 {
+    
+    /* typography */
+
+    header h1 {
         font-size: 5.5rem; /* 88px */
         letter-spacing: 0.94rem; /* 88px */
         top: 25%;
@@ -138,4 +173,34 @@ button:active {
         top: 58%;
     }
     
+    #top-discount-banner p {
+        font-size: 1em;
+    }
+
+    /* layout */
+    
+    .menu-item{
+        margin: 15px auto;
+        width: calc(70%);
+        border: none;
+    }
+
+    .item-inner {
+        gap: 20px;
+    }
+
+    .menu-details{
+        font-size: 1rem; /* 11px */
+        width: calc(100%);
+        line-height: 1.5;
+        margin-bottom: 15px;
+    }
+   
+
+    .dish-preview {
+        max-height: 15.63rem; /* 250px */
+        width: 12.5rem; /* 200px */
+    }
+
+
 }
