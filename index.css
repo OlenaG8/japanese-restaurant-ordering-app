@@ -22,7 +22,7 @@ header h1, header h2 {
     margin: 0;
     text-align: center;
     font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.5;
 }
 
@@ -84,6 +84,7 @@ header img {
 
 .menu-item {
     display: flex;
+    justify-content: space-between;
     border-bottom: 1px solid lightgray;
     padding: 1.25rem 0 0 0; /* 20px */
     margin: 0 0.94rem; /* 15px */
@@ -109,6 +110,22 @@ header img {
 .menu-details h3 {
     margin: 0;
 }
+
+/* order preview */
+
+.order-preview-con {
+    width:100%;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+    background: lightyellow;
+
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+}
+
 
 /* buttons */
 
@@ -136,7 +153,7 @@ button:active {
 }
 
 .purchase-button {
-    margin: 10px auto;
+    width: 80%;
     border: none;
     border-radius: 3px;
     background: #ff9900;
