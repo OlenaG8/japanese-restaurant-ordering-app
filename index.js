@@ -14,6 +14,7 @@ function handleAddBtn(itemId){
         return item.id === parseInt(itemId)
     })
     targetItem.amount++
+    renderYourOrder(targetItem)
     render()
 }
 
@@ -32,6 +33,14 @@ function handleRemoveBtn(itemId){
 
 function getFeedHtml(type) {
     return menuArray.filter(item => item.type === type).map(getItemHtml).join('')
+}
+
+function getYourOrderHtml(item) {
+    return `
+        <li>
+            <p>${item.name} x ${item.amount}</p>
+            <p>${item.price}€</p>
+        </li>`
 }
 
 function getItemHtml(item) {
@@ -55,6 +64,10 @@ function getItemHtml(item) {
     </div>  
 </div>
 `
+}
+
+function renderYourOrder(item) {
+    document.getElementById('list-of-ordered-items').innerHTML += getYourOrderHtml(item)
 }
 
 function render(){
