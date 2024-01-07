@@ -5,6 +5,7 @@ body {
     overflow-x: hidden;
 }
 
+/* Small devices with the width <= 992px */
 /* typography */
 
 header h1, header h2 {
@@ -15,8 +16,6 @@ header h1, header h2 {
     color: #fff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-
-/* Small devices with the width <= 992px */
 
 #top-discount-banner p {
     margin: 0;
@@ -48,7 +47,9 @@ header h2 {
     font-size: 0.88rem; /* 14px */
 }
 
-
+.order-preview-con h3 {
+    margin: 5px auto;
+}
 
 /* layout */
 
@@ -121,7 +122,7 @@ header img {
 /* order preview */
 
 .order-preview-con {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
 
@@ -132,6 +133,25 @@ header img {
     z-index: 1;
     background: #fff;
     border-top: 1px solid lightgray;
+}
+
+/* a list of ordered items */
+
+ol {
+    width: 100%;
+    margin-left: 0;
+}
+
+ol li{
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    align-items: center;
+    counter-increment: item;
+}
+
+li:before {
+    content: counter(item);
 }
 
 
@@ -167,24 +187,8 @@ button:active {
     background: #ff9900;
     color: #fff;
     padding: 8px 20px;
+    margin: 10px auto;
 }
-
-/* a list of ordered items */
-ol{
-    width: 100%;
-}
-
-ol li{
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    align-items: center;
-    counter-increment: item;
-}
-
-li:before {
-    content: counter(item);
-   }
 
 /* utility */
 

@@ -9,30 +9,41 @@ document.addEventListener('click', function(e){
      }
 })
 
+let yourOrderArr = []
+
+function findIfArrayContains(myArr, itemId) {
+    return myArr.find(item => item.id === parseInt(itemId))
+}
+
 function handleAddBtn(itemId){
-    const targetItem = menuArray.find(function(item){
-        return item.id === parseInt(itemId)
-    })
-    targetItem.amount++
+  
+    const targetItem = findIfArrayContains(menuArray, itemId)
+    const selectedItem = findIfArrayContains(yourOrderArr, itemId)
+
+    if (selectedItem) {
+        targetItem.amount++
+    } else {
+        targetItem.amount++
+        yourOrderArr.push(targetItem)
+    }
+
+    document.getElementById("order-preview-con").style.display = "flex"
     renderYourOrder(targetItem)
     render()
 }
 
-
 function handleRemoveBtn(itemId){
-    const targetItem = menuArray.find(function(item){
-        return item.id === parseInt(itemId)
-    })
+    const targetItem = findIfArrayContains(menuArray, itemId)
+    const selectedItem = findIfArrayContains(yourOrderArr, itemId)
 
-    if (targetItem.amount >= 1) {
+    if (targetItem.amount >= 1 && selectedItem) {
         targetItem.amount--
+        yourOrderArr.pop(targetItem)
+    } else if (targetItem.amount < 1) {
+        document.getElementById("order-preview-con").style.display = "none"
     }
-
+    renderYourOrder(targetItem)
     render()
-}
-
-function getFeedHtml(type) {
-    return menuArray.filter(item => item.type === type).map(getItemHtml).join('')
 }
 
 function getYourOrderHtml(item) {
@@ -67,7 +78,11 @@ function getItemHtml(item) {
 }
 
 function renderYourOrder(item) {
-    document.getElementById('list-of-ordered-items').innerHTML += getYourOrderHtml(item)
+    document.getElementById('list-of-ordered-items').innerHTML = getYourOrderHtml(item)
+}
+
+function getFeedHtml(type) {
+    return menuArray.filter(item => item.type === type).map(getItemHtml).join('')
 }
 
 function render(){
