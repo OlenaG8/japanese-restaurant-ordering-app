@@ -6,7 +6,9 @@ body {
 }
 
 /* Small devices with the width <= 992px */
-/* typography */
+/* =================
+    Typography 
+   ================= */
 
 header h1, header h2 {
     position: absolute;
@@ -48,7 +50,8 @@ header h2 {
 }
 
 .order-preview-con h3 {
-    margin: 5px auto;
+    font-size: 1em;
+    margin: 2px auto;
 }
 
 /* layout */
@@ -212,7 +215,7 @@ button:active {
     }
 
     header h2 {
-        font-size: 3rem;
+        font-size: 3.25rem;
         letter-spacing: 1.35rem;
         top: 58%;
     }

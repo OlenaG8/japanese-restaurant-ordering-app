@@ -11,14 +11,14 @@ document.addEventListener('click', function(e){
 
 let yourOrderArr = []
 
-function findIfArrayContains(myArr, itemId) {
+function findIndexInArray(myArr, itemId) {
     return myArr.find(item => item.id === parseInt(itemId))
 }
 
 function handleAddBtn(itemId){
   
-    const targetItem = findIfArrayContains(menuArray, itemId)
-    const selectedItem = findIfArrayContains(yourOrderArr, itemId)
+    const targetItem = findIndexInArray(menuArray, itemId)
+    const selectedItem = findIndexInArray(yourOrderArr, itemId)
 
     if (selectedItem) {
         targetItem.amount++
@@ -33,25 +33,17 @@ function handleAddBtn(itemId){
 }
 
 function handleRemoveBtn(itemId){
-    const targetItem = findIfArrayContains(menuArray, itemId)
-    const selectedItem = findIfArrayContains(yourOrderArr, itemId)
+    const targetItem = findIndexInArray(menuArray, itemId)
+    const selectedItem = findIndexInArray(yourOrderArr, itemId)
 
-    if (targetItem.amount >= 1 && selectedItem) {
+    if (targetItem.amount >= 1 && selectedItem !== -1) {
         targetItem.amount--
-        yourOrderArr.pop(targetItem)
-    } else if (targetItem.amount < 1) {
+        yourOrderArr.splice(selectedItem, 1)
+    } else if (yourOrderArr.length === 0) {
         document.getElementById("order-preview-con").style.display = "none"
     }
     renderYourOrder(targetItem)
     render()
-}
-
-function getYourOrderHtml(item) {
-    return `
-        <li>
-            <p>${item.name} x ${item.amount}</p>
-            <p>${item.price}€</p>
-        </li>`
 }
 
 function getItemHtml(item) {
@@ -77,9 +69,26 @@ function getItemHtml(item) {
 `
 }
 
-function renderYourOrder(item) {
-    document.getElementById('list-of-ordered-items').innerHTML = getYourOrderHtml(item)
+function getYourOrderHtml(item) {
+    return `
+        <li id="item-${item.id}">
+            <p>${item.name} x ${item.amount}</p>
+            <p>${(item.price * item.amount).toFixed(2)}€</p>
+        </li>`
 }
+
+function renderYourOrder(item) {
+    const orderedItem = findIndexInArray(yourOrderArr, item.id)
+
+    if (orderedItem.amount > 1) {
+        document.querySelectorAll('.item-${item.id}').innerHTML = `<p>${item.name} x ${item.amount}</p>
+        <p>${(item.price * item.amount).toFixed(2)}€</p>`
+    } else {
+        document.getElementById('list-of-ordered-items').innerHTML += getYourOrderHtml(item)
+    }
+
+}
+
 
 function getFeedHtml(type) {
     return menuArray.filter(item => item.type === type).map(getItemHtml).join('')
