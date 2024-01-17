@@ -2,47 +2,40 @@ import { menuArray } from './data.js'
 
 document.addEventListener('click', function(e){
     if(e.target.dataset.add){
-        handleAddBtn(e.target.dataset.add)
+        handleAddBtn(parseInt(e.target.dataset.add))
      }
     else if(e.target.dataset.remove){
-        handleRemoveBtn(e.target.dataset.remove) 
+        handleRemoveBtn(parseInt(e.target.dataset.remove)) 
      }
 })
 
-let yourOrderArr = []
+let yourOrder = {}
+menuArray.forEach((item) => {
+    yourOrder[item.id] = 0
+})
 
 function findIndexInArray(myArr, itemId) {
-    return myArr.find(item => item.id === parseInt(itemId))
+    return myArr.find(item => item.id === itemId)
 }
 
 function handleAddBtn(itemId){
-  
-    const targetItem = findIndexInArray(menuArray, itemId)
-    const selectedItem = findIndexInArray(yourOrderArr, itemId)
 
-    if (selectedItem) {
-        targetItem.amount++
-    } else {
-        targetItem.amount++
-        yourOrderArr.push(targetItem)
-    }
+    yourOrder[itemId]++
 
     document.getElementById("order-preview-con").style.display = "flex"
-    renderYourOrder(targetItem)
+    renderYourOrder()
     render()
 }
 
 function handleRemoveBtn(itemId){
-    const targetItem = findIndexInArray(menuArray, itemId)
-    const selectedItem = findIndexInArray(yourOrderArr, itemId)
 
-    if (targetItem.amount >= 1 && selectedItem !== -1) {
-        targetItem.amount--
-        yourOrderArr.splice(selectedItem, 1)
-    } else if (yourOrderArr.length === 0) {
+    if (yourOrder[itemId] > 0) {
+        yourOrder[itemId]--
+    } 
+    if (Object.values(yourOrder).reduce((total, currentAmount) => total + currentAmount) === 0) {
         document.getElementById("order-preview-con").style.display = "none"
     }
-    renderYourOrder(targetItem)
+    renderYourOrder()
     render()
 }
 
@@ -61,7 +54,7 @@ function getItemHtml(item) {
         </div> 
         <div class="btn_container">
             <button class="quantity_btn" data-add="${item.id}">+</button>
-            <p class="${buttonsVisibility} quantity-${item.id}">${item.amount}</p>
+            <p class="${buttonsVisibility} quantity-${item.id}">${yourOrder[item.id]}</p>
             <button class="${buttonsVisibility} quantity_btn quantity-${item.id}" data-remove="${item.id}">-</button>
         </div>        
     </div>  
@@ -72,32 +65,23 @@ function getItemHtml(item) {
 function getYourOrderHtml(item) {
     return `
         <li id="item-${item.id}">
-            <p>${item.name} x ${item.amount}</p>
-            <p>${(item.price * item.amount).toFixed(2)}€</p>
+            <p>${item.name} x ${yourOrder[item.id]}</p>
+            <p>${(item.price * yourOrder[item.id]).toFixed(2)}€</p>
         </li>`
 }
 
-function renderYourOrder(item) {
-    const orderedItem = findIndexInArray(yourOrderArr, item.id)
+function renderYourOrder() {
 
-    yourOrderArr.forEach((item) => {
-        
-    })
-
-    if (orderedItem.amount > 1) {
-        document.getElementById(`item-${item.id}`).innerHTML = getYourOrderHtml(item)
-    } else {
-        document.getElementById('list-of-ordered-items').innerHTML += getYourOrderHtml(item)
-    }
-
+    const orderHtml = menuArray.filter(item => yourOrder[item.id] > 0).map(getYourOrderHtml).join('')
+    document.getElementById('list-of-ordered-items').innerHTML = orderHtml
+    
 }
-
 
 function getFeedHtml(type) {
     return menuArray.filter(item => item.type === type).map(getItemHtml).join('')
 }
 
-function render(){
+function render() {
         for (let type of ['ramens', 'sushi', 'drinks']) {
             document.getElementById(type).innerHTML = getFeedHtml(type)
         }
