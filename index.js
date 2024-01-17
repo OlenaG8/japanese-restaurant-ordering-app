@@ -80,9 +80,12 @@ function getYourOrderHtml(item) {
 function renderYourOrder(item) {
     const orderedItem = findIndexInArray(yourOrderArr, item.id)
 
+    yourOrderArr.forEach((item) => {
+        
+    })
+
     if (orderedItem.amount > 1) {
-        document.querySelectorAll('.item-${item.id}').innerHTML = `<p>${item.name} x ${item.amount}</p>
-        <p>${(item.price * item.amount).toFixed(2)}€</p>`
+        document.getElementById(`item-${item.id}`).innerHTML = getYourOrderHtml(item)
     } else {
         document.getElementById('list-of-ordered-items').innerHTML += getYourOrderHtml(item)
     }
