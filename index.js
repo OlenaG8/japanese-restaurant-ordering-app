@@ -14,10 +14,6 @@ menuArray.forEach((item) => {
     yourOrder[item.id] = 0
 })
 
-function findIndexInArray(myArr, itemId) {
-    return myArr.find(item => item.id === itemId)
-}
-
 function handleAddBtn(itemId){
 
     yourOrder[itemId]++
