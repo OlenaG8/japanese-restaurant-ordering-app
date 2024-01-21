@@ -6,7 +6,7 @@ body {
 }
 
 /* =================
-    Typography 
+    Typography
    ================= */
 
 #top-discount-banner p {
@@ -17,7 +17,7 @@ body {
     line-height: 1.5;
 }
 
-header h1, 
+header h1,
 header h2 {
     position: absolute;
     white-space: nowrap;
@@ -35,7 +35,7 @@ header h1 {
 
 header h2 {
     font-size: 0.69rem; /* 11px */
-    letter-spacing: 0.6rem; 
+    letter-spacing: 0.6rem;
     top: 70%;
 }
 
@@ -77,10 +77,6 @@ header {
     margin-bottom: 19rem; /* 200px */
 }
 
-.order-total,
-.ordered_items {
-    align-self: flex-start;
-}
 
 /* images */
 
@@ -129,10 +125,9 @@ header img {
 .order-preview-con {
     display: none;
     flex-direction: column;
-    align-items: center;
+    padding: 0.75em;
 
-    width:100vw;
-    padding: 0.94rem; /* 15px */
+    width: 100vw;
     position: fixed;
     bottom: 0;
     z-index: 1;
@@ -143,14 +138,14 @@ header img {
 /* a list of ordered items */
 
 ol {
-    width: 100%;
-    margin-left: 0;
+    margin: 0;
+    max-width: 75%;
 }
 
 ol li{
     display: flex;
     justify-content: space-between;
-    font-size: 13px;
+    font-size: 0.81rem;
     align-items: center;
     counter-increment: item;
 }
@@ -186,36 +181,43 @@ button:active {
 }
 
 .purchase-button {
-    width: 60%;
+    width: 80vw;
     border: none;
     background: #ff9900;
     color: #fff;
 
     border-radius: 50px;
     padding: 10px;
-    margin: 1em 0;
+    margin: 1em;
+}
+
+/* inputs */
+
+.discount input {
+    width: 80%;
+    font-size: 0.88rem;
+    text-align: center;
+    border: solid 2px #dedede;
+    border-radius: 50px;
+    padding: 10px;
+    
+}
+
+.discount {
+    width: 100vw;
+    align-content: center;
+    margin: 1em;
 }
 
 /* utility */
 
-.hidden{
+.hidden {
     display: none;
 }
 
-.discount input {
-    font-size: 0.88rem;;
-    border: solid 2px #dedede;
-    border-radius: 50px;
-    padding: 10px;
-}
-
-.discount {
-    margin: 1em 0; 
-}
-  
 
 /* =================
-    Media queries 
+    Media queries
    ================= */
 
 @media only screen and (min-width: 768px) {
