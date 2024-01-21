@@ -35,8 +35,17 @@ function handleRemoveBtn(itemId){
     render()
 }
 
+// function calcTotalPrice(arr) {
+//     const totalPrice = arr.reduce(
+//       (total, itemPrice) => total + itemPrice.price,
+//       0
+//     )
+//     totalPrice.innerHTML = `${totalP}`
+//     return totalP
+// }
+
 function getItemHtml(item) {
-    const buttonsVisibility = item.amount === 0 ? 'hidden' : ''
+    const buttonsVisibility = yourOrder[item.id] === 0 ? 'hidden' : ''
     
     return `<div class="menu-item">
     <div class="item-inner">
@@ -61,7 +70,7 @@ function getItemHtml(item) {
 function getYourOrderHtml(item) {
     return `
         <li id="item-${item.id}">
-            <p>${item.name} x ${yourOrder[item.id]}</p>
+            <h4>${item.name} x ${yourOrder[item.id]}</h4>
             <p>${(item.price * yourOrder[item.id]).toFixed(2)}€</p>
         </li>`
 }
@@ -70,6 +79,7 @@ function renderYourOrder() {
 
     const orderHtml = menuArray.filter(item => yourOrder[item.id] > 0).map(getYourOrderHtml).join('')
     document.getElementById('list-of-ordered-items').innerHTML = orderHtml
+    // document.getElementById('total-price').innerHTML = calcTotalPrice(yourOrder)
     
 }
 
