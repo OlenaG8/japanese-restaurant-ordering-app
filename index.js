@@ -52,7 +52,7 @@ function getItemHtml(item) {
         <div class="item-photo">
             <img src="${item.itemPhoto}" class="dish-preview" alt="${item.name}">
         </div>
-        <div class="menu-details">
+        <div class="item-details">
             <h3>${item.name}</h3>
             <p>${item.ingredients.join(', ')}</p>
             <h4>${item.price}€</h4>
