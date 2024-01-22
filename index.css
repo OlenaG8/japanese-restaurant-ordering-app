@@ -12,7 +12,7 @@ body {
 #top-discount-banner p {
     margin: 0;
     text-align: center;
-    font-size: 0.75rem; /* 12 px */
+    font-size: 0.81rem; /* 13 px */
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.5;
 }
@@ -44,9 +44,8 @@ header h2 {
     text-align: center;
 }
 
-.btn_container p {
-    margin: 5px 0;
-    font-size: 0.88rem; /* 14px */
+.item-details h3 {
+    margin: 0;
 }
 
 .order-preview-con h3 {
@@ -54,27 +53,32 @@ header h2 {
     margin: 2px auto;
 }
 
+.btn_container p {
+    margin: 5px 0;
+    font-size: 0.88rem; /* 14px */
+}
+
 /* =================
     Layout
    ================= */
 
 header {
-    width: 100%;
+    width: 100vw;
     position: relative;
 }
 
 #top-discount-banner {
     position: absolute;
-    padding: 0.63rem; /* 10px */
+    padding: 11px 0;
     background-color: #ff9900;
     color: #ffffff;
 
     z-index: 1;
-    width: 100%;
+    width: 100vw;
 }
 
 .menu-container {
-    margin-bottom: 19rem; /* 200px */
+    margin-bottom: 22rem; /* 340px */
 }
 
 
@@ -96,9 +100,10 @@ header img {
 /* menu items */
 
 .menu-item {
+    width: 80vw;
     border-bottom: 1px solid lightgray;
-    padding: 1.25rem 0 0 0; /* 20px */
-    margin: 0 0.94rem; /* 15px */
+    padding-top: 1.25rem; /* 20px */
+    margin: 15px auto;
 }
 
 .item-inner {
@@ -106,18 +111,9 @@ header img {
     gap: 0.94rem; /* 15px */
 }
 
-.item-photo {
-    display: flex;
-    flex: 1;
-}
-
-.menu-details{
+.item-details{
     font-size: 0.7rem; /* 11px */
     line-height: 1.5;
-}
-
-.menu-details h3 {
-    margin: 0;
 }
 
 /* order preview */
@@ -130,22 +126,18 @@ header img {
     width: 100vw;
     position: fixed;
     bottom: 0;
-    z-index: 1;
     background: #fff;
     border-top: 1px solid lightgray;
 }
 
-/* a list of ordered items */
 
-ol {
-    margin: 0;
-    max-width: 75%;
-}
+/* a list of ordered items */
 
 ol li{
     display: flex;
     justify-content: space-between;
     font-size: 0.81rem;
+    max-width: 70vw;
     align-items: center;
     counter-increment: item;
 }
@@ -200,7 +192,7 @@ button:active {
     border: solid 2px #dedede;
     border-radius: 50px;
     padding: 10px;
-    
+
 }
 
 .discount {
@@ -218,34 +210,41 @@ button:active {
 
 /* =================
     Media queries
-   ================= */
+   =================*/
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 576px) {
 
     /* typography */
 
     header h1 {
-        font-size: 5.5rem; /* 88px */
+        font-size: 5.2rem; /* 88px */
         letter-spacing: 0.94rem; /* 88px */
         top: 25%;
         left: 50.5%;
     }
 
     header h2 {
-        font-size: 3.25rem;
-        letter-spacing: 1.35rem;
+        font-size: 3rem;
+        letter-spacing: 1.3rem;
         top: 58%;
     }
 
     #top-discount-banner p {
-        font-size: 1em;
+        font-size: 1rem;
     }
 
+    .btn_container p {
+        font-size: 0.97rem; /* 14px */
+    }
+
+    .order-preview-con h3 {
+        font-size: 1.3rem;
+    }
+    
     /* layout */
 
     .menu-item{
-        margin: 15px auto;
-        width: calc(70%);
+        width: 70vw;
         border: none;
     }
 
@@ -253,13 +252,15 @@ button:active {
         gap: 20px;
     }
 
-    .menu-details{
+    .item-details{
         font-size: 1rem; /* 11px */
-        width: calc(100%);
+        width: 100vw;
         line-height: 1.5;
-        margin-bottom: 15px;
     }
 
+    .order-preview-con {
+        margin: 0 auto;
+    }
 
     .dish-preview {
         max-height: 15.63rem; /* 250px */
