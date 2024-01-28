@@ -35,14 +35,26 @@ function handleRemoveBtn(itemId){
     render()
 }
 
-// function calcTotalPrice(arr) {
-//     const totalPrice = arr.reduce(
-//       (total, itemPrice) => total + itemPrice.price,
-//       0
-//     )
-//     totalPrice.innerHTML = `${totalP}`
-//     return totalP
-// }
+ function calcTotalPrice() {
+    const totalPrice = menuArray
+        .filter(item => yourOrder[item.id] > 0)
+        .reduce((total, item) => (total + (yourOrder[item.id] * item.price)) * getDiscount(), 0)
+
+    return `Total price: ${totalPrice}€`
+}
+
+const userInput = document.getElementById('discount-input')
+
+userInput.addEventListener('input', function() {
+    document.getElementById('total-price').innerHTML= calcTotalPrice()
+} )
+
+function getDiscount() {
+    const discountCode = '20FORNEW'
+    const inputCode = userInput.value.toUpperCase()
+
+    return inputCode === discountCode ? '0.8' : '1'
+}
 
 function getItemHtml(item) {
     const buttonsVisibility = yourOrder[item.id] === 0 ? 'hidden' : ''
@@ -79,7 +91,7 @@ function renderYourOrder() {
 
     const orderHtml = menuArray.filter(item => yourOrder[item.id] > 0).map(getYourOrderHtml).join('')
     document.getElementById('list-of-ordered-items').innerHTML = orderHtml
-    // document.getElementById('total-price').innerHTML = calcTotalPrice(yourOrder)
+    document.getElementById('total-price').innerHTML = calcTotalPrice()
     
 }
 
