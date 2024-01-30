@@ -1,6 +1,16 @@
+:root {
+    --orange: #ff9900;
+    --ligthOrange: #FABD60;
+    --white: #fff;
+}
+
+*{
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    background-color: #fff;
+    background-color: var(--white);
     font-family: 'Varela', sans-serif;
     overflow-x: hidden;
 }
@@ -23,7 +33,7 @@ header h2 {
     white-space: nowrap;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #fff;
+    color: var(--white);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -58,6 +68,12 @@ header h2 {
     font-size: 0.88rem; /* 14px */
 }
 
+.users-details-pop-up h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 /* =================
     Layout
    ================= */
@@ -70,8 +86,8 @@ header {
 .top-discount-banner {
     position: absolute;
     padding: 0.69em 0; /* 11px */
-    background-color: #ff9900;
-    color: #ffffff;
+    background-color: var(--orange);
+    color: var(--white);
 
     z-index: 1;
     width: 100vw;
@@ -126,7 +142,7 @@ header img {
     width: 100vw;
     position: fixed;
     bottom: 0;
-    background: #fff;
+    background: var(--white);
     border-top: 1px solid lightgray;
 }
 
@@ -162,18 +178,18 @@ li:before {
 .quantity_btn {
     width: 1.56rem; /* 25px */
     height: 1.56rem; /* 25px */
-    background: #fff;
+    background: var(--white);
     border: 1px solid lightgray;
     border-radius: 50%;
 }
 
 button:hover {
-    background: #FABD60;
-    color: #fff;
+    background: var(--ligthOrange);
+    color: var(--white);
 }
 
 button:active {
-    background: #FE9951;
+    background: var(--orange);
 }
 
 .purchase-button,
@@ -186,8 +202,8 @@ button:active {
 
 .purchase-button {
     border: none;
-    background: #ff9900;
-    color: #fff;
+    background: var(--orange);
+    color: var(--white);
 }
 
 /* inputs */
@@ -195,13 +211,70 @@ button:active {
 .discount input {
     font-size: 0.88rem;
     text-align: center;
-    border: solid 2px #dedede;
+    border: solid 2px lightgrey;
 }
 
 .discount input:focus {
     outline: none;
     border: none;
-    box-shadow: 0px 0px 5px #ff9900;
+    box-shadow: 0px 0px 5px var(--ligthOrange);
+}
+
+.form input,
+.pay-btn {
+    margin-top: 10px; 
+    border: none;
+    background-color: lightgrey;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* user details pop up*/
+
+.users-details-pop-up {
+    display: flex;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: calc(100vh - 50%);
+    width: calc(100vw - 10%);
+    border-radius: 8px;
+    box-shadow: 0px 0px 6px 2px grey;
+    background-color: var(--white);
+}
+
+.pop-up-inner {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.close-btn-container {
+    text-align: right;
+    margin: 9px;
+}
+
+.close-btn:hover,
+.close-btn:active{
+    color: red;
+    background: lightgray;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.close-btn {
+    font-size: 20px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: black;
+}
+
+.pay-btn {
+    background-color: var(--orange);
+    color: var(--white);
 }
 
 /* utility */
@@ -268,7 +341,11 @@ button:active {
     }
 
     .order-preview-con h3 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+    }
+
+    .users-details-pop-up h1 {
+        margin-bottom: 50px;
     }
     
     /* layout */
@@ -283,7 +360,7 @@ button:active {
     }
 
     .item-details{
-        font-size: 1rem; /* 11px */
+        font-size: 1rem;
         width: 100vw;
         line-height: 1.5;
     }
@@ -293,7 +370,7 @@ button:active {
     }
 
     ol li {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         min-width: 48vw;
     }
 
@@ -314,4 +391,7 @@ button:active {
         height: 2.2rem; /* 35px */
     }
 
+    .users-details-pop-up {
+        width: calc(100vw - 40%);
+    }
 }
