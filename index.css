@@ -233,7 +233,7 @@ button:active {
 /* user details pop up*/
 
 .users-details-pop-up {
-    display: flex;
+    display: none;
     position: fixed;
     right: 0;
     left: 0;

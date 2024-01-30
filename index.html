@@ -59,14 +59,14 @@
                       </div>
 
                     <h3 id="total-price">Total price:</h3>
-                    <button class="purchase-button" id="purchase-button" data-pay="purchase-button">
+                    <button class="purchase-button" id="purchase-button">
                        <strong>Complete order</strong>
                     </button>
                 </div>
             </section>
 
             <section>
-                <div class="users-details-pop-up">
+                <div class="users-details-pop-up" id="users-details-pop-up">
                     <div class="pop-up-inner">
                     <div class="close-btn-container">
                         <button class="close-btn" id="close-btn">X</button>
@@ -80,12 +80,18 @@
                         placeholder="Enter your name"
                         name="name"
                         id="name"
+                        maxlength="20"
                         required
                         />
 
                         <input
                         class="users-details-input"
-                        type="text"
+                        type="tel"
+                        inputmode="numeric"
+                        pattern="[0-9\s]{13,19}"
+                        autocomplete="cc-number"
+                        minlength="19" 
+                        maxlength="19" 
                         placeholder="Enter card number"
                         name="cardNumber"
                         id="cardNumber"
@@ -94,14 +100,18 @@
 
                         <input
                         class="users-details-input"
-                        type="text"
+                        type="tel"
+                        inputmode="numeric"
+                        pattern="\d{3,4}"
+                        minlength="3" 
+                        maxlength="4" 
                         placeholder="Enter CVV"
                         name="cvv"
                         id="cvv"
                         required
                         />
 
-                        <button type="submit" class="pay-btn" id="payBtn">Pay</button>
+                        <button type="submit" class="pay-btn" id="pay-btn">Pay</button>
                         
                     </form>
                     </div>

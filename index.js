@@ -1,5 +1,8 @@
 import { menuArray } from './data.js'
 
+const userInput = document.getElementById('discount-input')
+const popUp = document.getElementById('users-details-pop-up')
+
 document.addEventListener('click', function(e){
     if(e.target.dataset.add){
         handleAddBtn(parseInt(e.target.dataset.add))
@@ -7,7 +10,22 @@ document.addEventListener('click', function(e){
     else if(e.target.dataset.remove){
         handleRemoveBtn(parseInt(e.target.dataset.remove)) 
      }
+    else if(e.target.id === 'purchase-button') {
+        handlePayBtn() 
+    }
+    else if(e.target.id === 'close-btn') {
+        closeBtn()
+    }
 })
+
+
+function handlePayBtn() {
+    popUp.style.display = 'flex'
+}
+
+function closeBtn() {
+    popUp.style.display = 'none'
+}
 
 let yourOrder = {}
 menuArray.forEach((item) => {
@@ -42,8 +60,6 @@ function handleRemoveBtn(itemId){
 
     return `Total price: ${totalPrice}€`
 }
-
-const userInput = document.getElementById('discount-input')
 
 userInput.addEventListener('input', function() {
     document.getElementById('total-price').innerHTML= calcTotalPrice()
