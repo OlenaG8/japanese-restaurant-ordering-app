@@ -18,6 +18,10 @@ document.addEventListener('click', function(e){
     }
 })
 
+function iDontKnowYet() {
+    `<h1>Thank you, ${name},! Your order is on its way</h1>
+    `
+}
 
 function handlePayBtn() {
     popUp.style.display = 'flex'
@@ -58,18 +62,23 @@ function handleRemoveBtn(itemId){
         .filter(item => yourOrder[item.id] > 0)
         .reduce((total, item) => (total + (yourOrder[item.id] * item.price)) * getDiscount(), 0)
 
-    return `Total price: ${totalPrice}€`
+    return totalPrice.toFixed(2)
 }
 
 userInput.addEventListener('input', function() {
-    document.getElementById('total-price').innerHTML= calcTotalPrice()
+    document.getElementById('total-price').innerHTML = `Total price: ${calcTotalPrice()}€`
 } )
 
 function getDiscount() {
     const discountCode = '20FORNEW'
     const inputCode = userInput.value.toUpperCase()
 
-    return inputCode === discountCode ? '0.8' : '1'
+    if (inputCode === discountCode) {
+        document.getElementById('discount').innerHTML = `<button class="discount-applied">20% discount applied!</button>`
+        return 0.8
+    } else {
+        return 1
+    }
 }
 
 function getItemHtml(item) {
@@ -107,7 +116,7 @@ function renderYourOrder() {
 
     const orderHtml = menuArray.filter(item => yourOrder[item.id] > 0).map(getYourOrderHtml).join('')
     document.getElementById('list-of-ordered-items').innerHTML = orderHtml
-    document.getElementById('total-price').innerHTML = calcTotalPrice()
+    document.getElementById('total-price').innerHTML = `Total price: ${calcTotalPrice()}€`
     
 }
 

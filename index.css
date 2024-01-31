@@ -193,7 +193,8 @@ button:active {
 }
 
 .purchase-button,
-.discount input {
+.discount input,
+.discount-applied {
     width: 70vw;
     border-radius: 50px;
     padding: 10px;
@@ -205,6 +206,15 @@ button:active {
     background: var(--orange);
     color: var(--white);
 }
+
+.discount-applied,
+.discount-applied:hover  {
+    border: 1px solid green;
+    background: lightgreen;
+    color:black;
+    font-size: 14px;
+}
+
 
 /* inputs */
 
@@ -375,7 +385,8 @@ button:active {
     }
 
     .discount input,
-    .purchase-button  {
+    .purchase-button,
+    .discount-applied  {
         width: 55vw;
     }
 
