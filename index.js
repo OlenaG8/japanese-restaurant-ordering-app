@@ -1,7 +1,7 @@
 import { menuArray } from './data.js'
 
 const userInput = document.getElementById('discount-input')
-const popUp = document.getElementById('users-details-pop-up')
+const paymentPopUp = document.getElementById('users-details-pop-up')
 
 document.addEventListener('click', function(e){
     if(e.target.dataset.add){
@@ -11,30 +11,82 @@ document.addEventListener('click', function(e){
         handleRemoveBtn(parseInt(e.target.dataset.remove)) 
      }
     else if(e.target.id === 'purchase-button') {
+        e.preventDefault()
         handlePayBtn() 
     }
     else if(e.target.id === 'close-btn') {
-        closeBtn()
+        closePaymentPopUp() 
+    }
+    else if(e.target.id === 'pay-btn') {
+        e.preventDefault()
+        handlePayBtnClick()
     }
 })
 
-function iDontKnowYet() {
-    `<h1>Thank you, ${name},! Your order is on its way</h1>
-    `
-}
+window.addEventListener("click", rootClick)
 
 function handlePayBtn() {
-    popUp.style.display = 'flex'
+    paymentPopUp.style.display = 'flex'
 }
 
-function closeBtn() {
-    popUp.style.display = 'none'
+function closePaymentPopUp() {
+    paymentPopUp.style.display = 'none'
 }
 
 let yourOrder = {}
 menuArray.forEach((item) => {
     yourOrder[item.id] = 0
 })
+
+function rootClick(e) {
+    if (paymentPopUp.style.display === "flex" &&
+        e.target.id !== "users-details-pop-up" &&
+        e.target.id !== "pay-btn" &&
+        e.target.id !== "purchase-button" &&
+        !paymentPopUp.contains(e.target)) {
+            closePaymentPopUp()   
+    }
+}
+
+const ratingStars = [...document.getElementsByClassName("rating-container")];
+
+function handlePayBtnClick() {
+    const usersName = document.getElementById("name")
+    document.getElementById("users-details-pop-up").innerHTML = `
+    <div class="order-complete-message-section"
+        id="order-complete-message-section">
+        <h6>Thank you, ${usersName.value}! Your order is on its way!</h6>
+        <h6>Please rate your experience</h6>
+        <div class="rating-container" id="star-container">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+        </div>
+        <button>New order</button>
+    </div>`
+    //executeRating(ratingStars);
+}
+
+// function executeRating(stars) {
+//     const starClassActive = "rating-container fas fa-star"
+//     const starClassInactive = "rating-container far fa-star"
+//     const starsLength = stars.length
+//     let i
+// }
+
+// stars.map((star) => {
+//     star.onclick = () => {
+//        i = stars.indexOf(star)
+
+//        if (star.className===starClassInactive) {        
+//           for (i; i >= 0; --i) stars[i].className = starClassActive
+//        } else {
+//           for (i; i < starsLength; ++i) stars[i].className = starClassInactive;
+//        }
+//     }
+//  })
 
 function handleAddBtn(itemId){
 

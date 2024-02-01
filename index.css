@@ -2,6 +2,7 @@
     --orange: #ff9900;
     --ligthOrange: #FABD60;
     --white: #fff;
+    --lightGreen: #DCF5CF;
 }
 
 *{
@@ -19,7 +20,7 @@ body {
     Typography
    ================= */
 
-.top-discount-banner p {
+.discount-banner p {
     margin: 0;
     text-align: center;
     font-size: 0.81rem; /* 13 px */
@@ -83,7 +84,7 @@ header {
     position: relative;
 }
 
-.top-discount-banner {
+.discount-banner {
     position: absolute;
     padding: 0.69em 0; /* 11px */
     background-color: var(--orange);
@@ -209,9 +210,10 @@ button:active {
 
 .discount-applied,
 .discount-applied:hover  {
-    border: 1px solid green;
-    background: lightgreen;
-    color:black;
+    border: none;
+    background: var(--lightGreen);
+    box-shadow: inset 0px 0px 4px darkolivegreen;
+    color:darkolivegreen;
     font-size: 14px;
 }
 
@@ -221,13 +223,13 @@ button:active {
 .discount input {
     font-size: 0.88rem;
     text-align: center;
-    border: solid 2px lightgrey;
+    border: solid 1px lightgrey;
 }
 
 .discount input:focus {
     outline: none;
     border: none;
-    box-shadow: 0px 0px 5px var(--ligthOrange);
+    box-shadow: 0px 0px 6px lightgray;
 }
 
 .form input,
@@ -287,6 +289,15 @@ button:active {
     color: var(--white);
 }
 
+.rating {
+    width: 180px;
+ }
+ 
+ .rating__star {
+    cursor: pointer;
+    color: #dabd18b2;
+ }
+
 /* utility */
 
 .hidden {
@@ -299,7 +310,7 @@ button:active {
 
 @media (min-width: 481px) and (max-width: 767px) {
 
-    .top-discount-banner p {
+    .discount-banner p {
         font-size: 1em;
     }
     
@@ -342,12 +353,9 @@ button:active {
         font-size: 1.75rem;
     }
 
-    .top-discount-banner p {
-        font-size: 1rem;
-    }
-
+    .discount-banner p,
     .btn_container p {
-        font-size: 0.97rem; /* 14px */
+        font-size: 1rem;
     }
 
     .order-preview-con h3 {
