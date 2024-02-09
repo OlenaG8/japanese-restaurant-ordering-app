@@ -289,14 +289,9 @@ button:active {
     color: var(--white);
 }
 
-.rating {
-    width: 180px;
- }
- 
- .rating__star {
-    cursor: pointer;
-    color: #dabd18b2;
- }
+.active {
+    color: gold;
+}
 
 /* utility */
 
@@ -359,7 +354,7 @@ button:active {
     }
 
     .order-preview-con h3 {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
 
     .users-details-pop-up h1 {

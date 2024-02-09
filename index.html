@@ -75,7 +75,7 @@
                         <button class="close-btn" id="close-btn">X</button>
                     </div>
                         <h1>Enter card details</h1>
-                    <form class="form">
+                    <form class="form" id="form">
 
                         <input
                         class="users-details-input"
@@ -91,7 +91,6 @@
                         class="users-details-input"
                         type="tel"
                         inputmode="numeric"
-                        pattern="[0-9\s]{13,19}"
                         autocomplete="cc-number"
                         minlength="19" 
                         maxlength="19" 
@@ -105,7 +104,7 @@
                         class="users-details-input"
                         type="tel"
                         inputmode="numeric"
-                        pattern="\d{3,4}"
+                        autocomplete="cc-number"
                         minlength="3" 
                         maxlength="4" 
                         placeholder="Enter CVV"

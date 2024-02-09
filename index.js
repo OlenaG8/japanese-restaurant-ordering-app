@@ -21,16 +21,15 @@ document.addEventListener('click', function(e){
         e.preventDefault()
         handlePayBtnClick()
     }
+    else if(e.target.id === 'new-order') {
+        handleNewOrderBtn()
+    }
 })
 
 window.addEventListener("click", rootClick)
 
 function handlePayBtn() {
     paymentPopUp.style.display = 'flex'
-}
-
-function closePaymentPopUp() {
-    paymentPopUp.style.display = 'none'
 }
 
 let yourOrder = {}
@@ -48,45 +47,10 @@ function rootClick(e) {
     }
 }
 
-const ratingStars = [...document.getElementsByClassName("rating-container")];
-
-function handlePayBtnClick() {
-    const usersName = document.getElementById("name")
-    document.getElementById("users-details-pop-up").innerHTML = `
-    <div class="order-complete-message-section"
-        id="order-complete-message-section">
-        <h6>Thank you, ${usersName.value}! Your order is on its way!</h6>
-        <h6>Please rate your experience</h6>
-        <div class="rating-container" id="star-container">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-        </div>
-        <button>New order</button>
-    </div>`
-    //executeRating(ratingStars);
+function closePaymentPopUp() {
+    paymentPopUp.style.display = 'none'
 }
 
-// function executeRating(stars) {
-//     const starClassActive = "rating-container fas fa-star"
-//     const starClassInactive = "rating-container far fa-star"
-//     const starsLength = stars.length
-//     let i
-// }
-
-// stars.map((star) => {
-//     star.onclick = () => {
-//        i = stars.indexOf(star)
-
-//        if (star.className===starClassInactive) {        
-//           for (i; i >= 0; --i) stars[i].className = starClassActive
-//        } else {
-//           for (i; i < starsLength; ++i) stars[i].className = starClassInactive;
-//        }
-//     }
-//  })
 
 function handleAddBtn(itemId){
 
@@ -183,3 +147,47 @@ function render() {
 }
 
 render()
+
+function handlePayBtnClick() {
+
+    const form = document.getElementById("form")
+
+    if(!form.checkValidity()) {
+        alert("Please fill in all the fields")
+    } else {
+        const usersName = document.getElementById("name")
+        document.getElementById("users-details-pop-up").innerHTML = `
+        <div class="order-complete-message-section"
+            id="order-complete-message-section">
+            <h6>Thank you, ${usersName.value}! Your order is on its way!</h6>
+            <h7>Please rate your experience</h7>
+            <div class="star-container" id="star-container">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <button class="new-order" id="new-order">New order</button>
+        </div>`
+
+        handleStarClick()
+    }
+
+}
+
+function handleStarClick() {
+    const stars = document.querySelectorAll(".star-container i")
+
+    stars.forEach((star, index1) => {
+        star.addEventListener("click" && "mouseover", () => {
+            stars.forEach((star, index2) => {
+                index1 >= index2 ? star.classList.add("active") : star.classList.remove("active")
+            })
+        })
+    })
+}
+
+function handleNewOrderBtn() {
+    window.location.reload()
+}
