@@ -21,7 +21,7 @@ document.addEventListener('click', function(e){
         e.preventDefault()
         handlePayBtnClick()
     }
-    else if(e.target.id === 'new-order') {
+    else if(e.target.id === 'new-order-btn') {
         handleNewOrderBtn()
     }
 })
@@ -153,14 +153,13 @@ function handlePayBtnClick() {
     const form = document.getElementById("form")
 
     if(!form.checkValidity()) {
-        alert("Please fill in all the fields")
+        alert("Please fill all the fields")
     } else {
         const usersName = document.getElementById("name")
         document.getElementById("users-details-pop-up").innerHTML = `
-        <div class="order-complete-message-section"
-            id="order-complete-message-section">
+        <div class="order-complete" id="order-complete">
             <h6>Thank you, ${usersName.value}! Your order is on its way!</h6>
-            <h7>Please rate your experience</h7>
+            <p>Please rate your experience</p>
             <div class="star-container" id="star-container">
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
@@ -168,12 +167,11 @@ function handlePayBtnClick() {
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
             </div>
-            <button class="new-order" id="new-order">New order</button>
+            <button class="new-order-btn" id="new-order-btn">New order</button>
         </div>`
 
         handleStarClick()
     }
-
 }
 
 function handleStarClick() {
