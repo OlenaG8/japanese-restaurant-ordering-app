@@ -1,4 +1,17 @@
-Quick start:
+# Itadakimasu - Japanese Restaurant Ordering App
+
+An app created as a solo project as a part of Scrimba Frontend Career Path.
+<p>Deployed website: https://book-marked.netlify.app/](https://olenag8.github.io/japanese-restaurant-ordering-app/ </p>
+
+<h3>Requirements:</h3>
+<li>Render the menu options using JavaScript</li>
+<li>Be able to add/remove items</li>
+<li>Have a payment modal with compulsory form inputs</li>
+<li>Offer a discount</li>
+<li>Allow users to rate their experience</li>
+
+
+<h3>Quick start:</h3>
 
 ```
 $ npm install
