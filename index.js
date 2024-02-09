@@ -10,7 +10,7 @@ document.addEventListener('click', function(e){
     else if(e.target.dataset.remove){
         handleRemoveBtn(parseInt(e.target.dataset.remove)) 
      }
-    else if(e.target.id === 'purchase-button') {
+    else if(e.target.id === 'purchase-btn') {
         e.preventDefault()
         handlePayBtn() 
     }
@@ -18,7 +18,6 @@ document.addEventListener('click', function(e){
         closePaymentPopUp() 
     }
     else if(e.target.id === 'pay-btn') {
-        e.preventDefault()
         handlePayBtnClick()
     }
     else if(e.target.id === 'new-order-btn') {
@@ -41,7 +40,7 @@ function rootClick(e) {
     if (paymentPopUp.style.display === "flex" &&
         e.target.id !== "users-details-pop-up" &&
         e.target.id !== "pay-btn" &&
-        e.target.id !== "purchase-button" &&
+        e.target.id !== "purchase-btn" &&
         !paymentPopUp.contains(e.target)) {
             closePaymentPopUp()   
     }
